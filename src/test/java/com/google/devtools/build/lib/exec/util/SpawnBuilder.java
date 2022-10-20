@@ -131,6 +131,15 @@ public final class SpawnBuilder {
     return this;
   }
 
+  @CanIgnoreReturnValue
+  public SpawnBuilder withInputs(ActionInput... inputs) {
+    for (var input : inputs) {
+      this.inputs.add(input);
+    }
+    return this;
+  }
+
+  @CanIgnoreReturnValue
   public SpawnBuilder withInputs(String... names) {
     for (String name : names) {
       this.inputs.add(ActionInputHelper.fromPath(name));
