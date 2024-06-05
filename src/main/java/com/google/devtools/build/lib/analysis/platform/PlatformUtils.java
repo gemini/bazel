@@ -99,7 +99,8 @@ public final class PlatformUtils {
     } else if (spawn.getExecutionPlatform() != null
         && !Strings.isNullOrEmpty(spawn.getExecutionPlatform().remoteExecutionProperties())) {
       properties = new HashMap<>();
-      // Try and get the platform info from the execution properties.
+      // Try and get the platform info from the execution properties. This is pretty inefficient; it
+      // would be better to store the parsed properties instead of the String text proto.
       try {
         Platform.Builder platformBuilder = Platform.newBuilder();
         TextFormat.getParser()
